@@ -1,0 +1,11 @@
+##dependency
+streamlit
+numpy
+pandas
+nltk
+sklearn
+notebook
+PyYAML
+
+##local packages -
+-e . 
