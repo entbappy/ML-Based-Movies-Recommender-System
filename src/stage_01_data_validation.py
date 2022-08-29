@@ -2,7 +2,6 @@ import os
 import sys
 import ast 
 import pandas as pd
-import nltk
 import pickle
 from nltk.stem import PorterStemmer
 from app_logger.logger import logging

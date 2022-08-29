@@ -3,7 +3,7 @@ import sys
 from app_logger.logger import logging
 from app_utils.utils import read_yaml_file
 from app_exception.exception_handler import AppException
-from app_entity.config_entity import DataIngestionConfig, DataValidationConfig
+from app_entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig
 
 ROOT_DIR = os.getcwd()
 
@@ -64,6 +64,30 @@ class AppConfiguration:
             )
 
             logging.info(f"Data Validation Config: {response}")
+            return response
+
+        except Exception as e:
+            raise AppException(e, sys) from e
+
+    
+
+    def get_data_transformation_config(self) -> DataTransformationConfig:
+        try:
+            data_transformation_config = self.configs_info['data_transformation_config']
+            data_validation_config = self.configs_info['data_validation_config']
+            data_ingestion_config = self.configs_info['data_ingestion_config']
+            dataset_dir = data_ingestion_config['dataset_dir']
+            artifacts_dir = self.configs_info['artifacts_config']['artifacts_dir']
+          
+            clean_data_file_path = os.path.join(artifacts_dir, dataset_dir, data_validation_config['clean_data_dir'],'clean_data.csv')
+            transformed_data_dir = os.path.join(artifacts_dir, dataset_dir, data_transformation_config['transformed_data_dir'])
+
+            response = DataTransformationConfig(
+                clean_data_file_path = clean_data_file_path,
+                transformed_data_dir = transformed_data_dir
+            )
+
+            logging.info(f"Data Transformation Config: {response}")
             return response
 
         except Exception as e:

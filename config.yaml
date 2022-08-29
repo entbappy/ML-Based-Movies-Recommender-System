@@ -13,3 +13,7 @@ data_validation_config:
   serialized_objects_dir: serialized_objects
   credit_csv_file: tmdb_5000_credits.csv
   movies_csv_file: tmdb_5000_movies.csv
+
+
+data_transformation_config:
+  transformed_data_dir: transformed_data
