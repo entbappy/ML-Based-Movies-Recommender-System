@@ -44,7 +44,7 @@ class DataIngestion:
     def extract_zip_file(self,zip_file_path: str):
         """
         zip_file_path: str
-        Extracts the zipz file into the data directory
+        Extracts the zip file into the data directory
         Function returns None
         """
         try:

@@ -74,7 +74,7 @@ echo [$(date)] : "CREATE REQUIREMENTS TEXT FILE"
 touch requirements.txt
 
 echo [$(date)]: "CREATING DOCKER FILE"
-touch dockerfile
+touch Dockerfile
 
 echo [$(date)]: "CREATING ADDITIONAL FILES"
 touch config.yaml
