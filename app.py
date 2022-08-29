@@ -1,5 +1,4 @@
-from src.stage_00_data_ingestion import DataIngestion
-from app_configuration.configuration import AppConfiguration
+from app_pipeline.training_pipeline import TrainingPipeline
 
-obj = DataIngestion()
-obj.initiate_data_ingestion()
+obj = TrainingPipeline()
+obj.start_training_pipeline()

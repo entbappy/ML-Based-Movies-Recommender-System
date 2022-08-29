@@ -8,3 +8,8 @@ data_ingestion_config:
   raw_data_dir: raw_data
 
   
+data_validation_config:
+  clean_data_dir: clean_data
+  serialized_objects_dir: serialized_objects
+  credit_csv_file: tmdb_5000_credits.csv
+  movies_csv_file: tmdb_5000_movies.csv

@@ -61,5 +61,6 @@ class DataIngestion:
         try:
             zip_file_path = self.download_data()
             self.extract_zip_file(zip_file_path=zip_file_path)
+            logging.info(f"{'='*20}Data Ingestion log completed.{'='*20} \n\n")
         except Exception as e:
             raise AppException(e, sys) from e
