@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 ## edit below variables as per your requirements -
 REPO_NAME = "ML Based Movies Recommender System"
 AUTHOR_USER_NAME = "BOKTIAR AHMED BAPPY"
-SRC_REPO = "src"
+SRC_REPO = "movies_recommender_src"
 LIST_OF_REQUIREMENTS = []
 
 

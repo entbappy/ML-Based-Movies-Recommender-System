@@ -1,7 +1,7 @@
-from src.stage_00_data_ingestion import DataIngestion
-from src.stage_01_data_validation import DataValidation
-from src.stage_02_data_transformation import DataTransformation
-from src.stage_03_model_trainer import ModelTrainer
+from movies_recommender_src.stage_00_data_ingestion import DataIngestion
+from movies_recommender_src.stage_01_data_validation import DataValidation
+from movies_recommender_src.stage_02_data_transformation import DataTransformation
+from movies_recommender_src.stage_03_model_trainer import ModelTrainer
 
 
 

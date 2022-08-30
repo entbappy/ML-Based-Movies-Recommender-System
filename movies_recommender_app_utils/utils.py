@@ -1,6 +1,6 @@
 import yaml
 import sys
-from app_exception.exception_handler import AppException
+from movies_recommender_app_exception.exception_handler import AppException
 
 
 

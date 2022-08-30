@@ -1,5 +1,5 @@
 artifacts_config:
-  artifacts_dir: artifacts
+  artifacts_dir: movies_recommender_artifacts
 
 data_ingestion_config:
   dataset_download_url: https://github.com/entbappy/Branching-tutorial/raw/master/tmdb_5000_credits.zip
@@ -22,3 +22,7 @@ data_transformation_config:
 model_trainer_config:
   trained_model_dir: trained_model
   trained_model_name: similarity.pkl
+
+
+recommendation_config:
+  poster_api_url: https://api.themoviedb.org/3/movie/{}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US

@@ -2,9 +2,9 @@ import os
 import sys
 from six.moves import urllib
 import zipfile
-from app_logger.logger import logging
-from app_exception.exception_handler import AppException
-from app_configuration.configuration import AppConfiguration
+from movies_recommender_app_logger.logger import logging
+from movies_recommender_app_exception.exception_handler import AppException
+from movies_recommender_app_configuration.configuration import AppConfiguration
 
 class DataIngestion:
 

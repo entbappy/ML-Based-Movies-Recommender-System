@@ -2,10 +2,10 @@ import os
 import sys
 import pickle
 import numpy as np
-from app_logger.logger import logging
+from movies_recommender_app_logger.logger import logging
 from sklearn.metrics.pairwise import cosine_similarity
-from app_exception.exception_handler import AppException
-from app_configuration.configuration import AppConfiguration
+from movies_recommender_app_exception.exception_handler import AppException
+from movies_recommender_app_configuration.configuration import AppConfiguration
 
 
 
