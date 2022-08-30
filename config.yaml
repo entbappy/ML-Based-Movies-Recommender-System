@@ -17,3 +17,8 @@ data_validation_config:
 
 data_transformation_config:
   transformed_data_dir: transformed_data
+
+
+model_trainer_config:
+  trained_model_dir: trained_model
+  trained_model_name: similarity.pkl

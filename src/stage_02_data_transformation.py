@@ -11,7 +11,7 @@ from app_configuration.configuration import AppConfiguration
 class DataTransformation:
     def __init__(self, app_config = AppConfiguration()):
         try:
-            self.data_validation_config = app_config.get_data_transformation_config()
+            self.data_transformation_config = app_config.get_data_transformation_config()
         except Exception as e:
             raise AppException(e, sys) from e
 
@@ -35,14 +35,14 @@ class DataTransformation:
     
     def get_data_transformer(self):
         try:
-            df = pd.read_csv(self.data_validation_config.clean_data_file_path)
+            df = pd.read_csv(self.data_transformation_config.clean_data_file_path)
             cv = CountVectorizer(max_features=5000,stop_words='english')
             vector = cv.fit_transform(df['tags']).toarray()
             logging.info(f" Shape of the final vector: {vector.shape}")
 
             #saving vector as numpy array for training
-            DataTransformation.save_numpy_array_data(file_path=os.path.join(self.data_validation_config.transformed_data_dir,"transformed_data.npy"),array=vector)
-            logging.info(f"Saving final vector as numpy array to {self.data_validation_config.transformed_data_dir}")
+            DataTransformation.save_numpy_array_data(file_path=os.path.join(self.data_transformation_config.transformed_data_dir,"transformed_data.npy"),array=vector)
+            logging.info(f"Saving final vector as numpy array to {self.data_transformation_config.transformed_data_dir}")
 
         except Exception as e:
             raise AppException(e, sys) from e
