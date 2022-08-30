@@ -122,9 +122,3 @@ Note: Before clicking on show recommendations first of all click on Train Recomm
 ```
 
 
-```bash
-Author: BOKTIAR AHMED BAPPY
-Data Scientist at iNeuron.ai
-Email: boktiar@ineuron.ai
-
-```

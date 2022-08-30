@@ -1,7 +1,6 @@
 import os
 import sys
 import pickle
-from numpy import object_
 import streamlit as st
 import requests
 from movies_recommender_app_logger.logger import logging
@@ -20,56 +19,68 @@ class Recommendation:
 
 
     def fetch_poster(self,movie_id):
-        poster_api = self.recommendation_config.poster_api
-        url = poster_api.format(movie_id)
-        data = requests.get(url)
-        data = data.json()
-        poster_path = data['poster_path']
-        full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
-        return full_path
+        try:
+            poster_api = self.recommendation_config.poster_api
+            url = poster_api.format(movie_id)
+            data = requests.get(url)
+            data = data.json()
+            poster_path = data['poster_path']
+            full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
+            return full_path
+        except Exception as e:
+            raise AppException(e, sys) from e
         
 
 
     def recommend(self,movie):
-        index = self.movies[self.movies['title'] == movie].index[0]
-        distances = sorted(list(enumerate(self.similarity[index])), reverse=True, key=lambda x: x[1])
-        recommended_movie_names = []
-        recommended_movie_posters = []
-        for i in distances[1:6]:
-            # fetch the movie poster
-            movie_id = self.movies.iloc[i[0]].movie_id
-            recommended_movie_posters.append(self.fetch_poster(movie_id))
-            recommended_movie_names.append(self.movies.iloc[i[0]].title)
+        try:
+            index = self.movies[self.movies['title'] == movie].index[0]
+            distances = sorted(list(enumerate(self.similarity[index])), reverse=True, key=lambda x: x[1])
+            recommended_movie_names = []
+            recommended_movie_posters = []
+            for i in distances[1:6]:
+                # fetch the movie poster
+                movie_id = self.movies.iloc[i[0]].movie_id
+                recommended_movie_posters.append(self.fetch_poster(movie_id))
+                recommended_movie_names.append(self.movies.iloc[i[0]].title)
 
-        return recommended_movie_names,recommended_movie_posters
+            return recommended_movie_names,recommended_movie_posters
+        except Exception as e:
+            raise AppException(e, sys) from e
 
 
     def train_engine(self):
-        obj = TrainingPipeline()
-        obj.start_training_pipeline()
-        st.text("Training Completed!")
-        logging.info(f"Recommended successfully!")
+        try:
+            obj = TrainingPipeline()
+            obj.start_training_pipeline()
+            st.text("Training Completed!")
+            logging.info(f"Recommended successfully!")
+        except Exception as e:
+            raise AppException(e, sys) from e
 
     
     def recommendations_engine(self,selected_movie):
-        recommended_movie_names,recommended_movie_posters = self.recommend(selected_movie)
-        col1, col2, col3, col4, col5 = st.columns(5)
-        with col1:
-            st.text(recommended_movie_names[0])
-            st.image(recommended_movie_posters[0])
-        with col2:
-            st.text(recommended_movie_names[1])
-            st.image(recommended_movie_posters[1])
+        try:
+            recommended_movie_names,recommended_movie_posters = self.recommend(selected_movie)
+            col1, col2, col3, col4, col5 = st.columns(5)
+            with col1:
+                st.text(recommended_movie_names[0])
+                st.image(recommended_movie_posters[0])
+            with col2:
+                st.text(recommended_movie_names[1])
+                st.image(recommended_movie_posters[1])
 
-        with col3:
-            st.text(recommended_movie_names[2])
-            st.image(recommended_movie_posters[2])
-        with col4:
-            st.text(recommended_movie_names[3])
-            st.image(recommended_movie_posters[3])
-        with col5:
-            st.text(recommended_movie_names[4])
-            st.image(recommended_movie_posters[4])
+            with col3:
+                st.text(recommended_movie_names[2])
+                st.image(recommended_movie_posters[2])
+            with col4:
+                st.text(recommended_movie_names[3])
+                st.image(recommended_movie_posters[3])
+            with col5:
+                st.text(recommended_movie_names[4])
+                st.image(recommended_movie_posters[4])
+        except Exception as e:
+            raise AppException(e, sys) from e
 
 
 
