@@ -1,5 +1,3 @@
-# ML-Based-Movies-Recommender-System
-
 # Project: ML Based Movie Recommender System!
 
 <img src="docs/intro.jpeg" alt="workflow" width="70%">
