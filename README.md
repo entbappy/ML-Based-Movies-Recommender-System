@@ -81,6 +81,12 @@ This is a content based movies recommender system & a streamlit web application 
 
 5 . For more details , check URL : https://www.learndatasci.com/glossary/cosine-similarity/
 
+
+# Built With
+1. streamlit
+2. NLTK
+3. sklearn
+
 # How to run?
 ### STEPS:
 
