@@ -112,7 +112,7 @@ streamlit run app.py
 ```
 
 ```bash
-Note: Before clicking on show recommendations first of all click on Train Recommender System for generraining models
+Note: Before clicking on show recommendations first of all click on Train Recommender System for generating models
 ```
 
 
